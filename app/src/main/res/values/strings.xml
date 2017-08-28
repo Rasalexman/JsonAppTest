@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Jsonapptest</string>
+
+    <string-array name="month_short">
+        <item>янв</item>
+        <item>фев</item>
+        <item>мар</item>
+        <item>апр</item>
+        <item>мая</item>
+        <item>июля</item>
+        <item>июня</item>
+        <item>авг</item>
+        <item>сент</item>
+        <item>окт</item>
+        <item>нояб</item>
+        <item>дек</item>
+    </string-array>
+
+    <string name="title_desc">Описание поста</string>
+
+    <string name="back_now">только что</string>
+    <string name="back_less_sec">сек. н.</string>
+    <string name="back_less_min">мин. н.</string>
+    <string name="back_less_hour">ч. н.</string>
+</resources>

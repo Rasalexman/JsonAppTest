@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'me.tatarka:gradle-retrolambda:3.4.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+
+    ext {
+        versions = [supportLib: "25.3.1"]
+
+        conductorVersion = '2.1.2'
+
+        butterKnifeVersion = "8.4.0"
+
+        daggerVersion = "2.10"
+
+        retrofitVersion = "2.3.0"
+
+        gsonVersion = "2.8.1"
+
+        leakCanaryVersion = "1.5.1"
+
+        fastAdapterLib = '2.6.2'
+        fastAdapterCommon = '2.6.0'
+
+        rxJava2Version = '2.0.8'
+        rxJava2AndroidVersion = '2.0.1'
+        rxLifecycle2Version = '2.0'
+        rxLifecyrcle2AndroidVersion = '2.0'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
