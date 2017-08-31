@@ -1,5 +1,6 @@
 package mincor.com.jsonapptest.controllers.base;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +9,14 @@ import android.view.View;
 import mincor.com.jsonapptest.controllers.actionbar.ActionBarProvider;
 
 public abstract class BaseController extends RefWatchingController {
+
+    public BaseController(){
+        super();
+    }
+
+    public BaseController(Bundle args) {
+        super(args);
+    }
 
     protected Toolbar getToolbar(){
         return null;

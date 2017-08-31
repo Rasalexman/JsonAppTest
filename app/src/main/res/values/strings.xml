@@ -17,6 +17,8 @@
     </string-array>
 
     <string name="title_desc">Описание поста</string>
+    <string name="warning_head">Внимание</string>
+    <string name="error_message_404">Данные не найдены на сервере</string>
 
     <string name="back_now">только что</string>
     <string name="back_less_sec">сек. н.</string>

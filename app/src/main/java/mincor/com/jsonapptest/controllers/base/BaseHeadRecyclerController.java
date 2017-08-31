@@ -36,8 +36,6 @@ public abstract class BaseHeadRecyclerController extends BaseController implemen
     protected FastItemAdapter<AbstractItem> mFastItemAdapter;
     // endless update adapter Item
     protected FooterAdapter<ProgressItem> mFooterAdapter;
-    // saved scroll position
-    private int savedScrollPosition = 0;
 
     // Store a member variable for the listener
     protected RecyclerView.OnScrollListener scrollListener;
@@ -109,9 +107,10 @@ public abstract class BaseHeadRecyclerController extends BaseController implemen
         if(mFooterAdapter != null) mFooterAdapter.clear();
     }
 
+    // применяем последнюю позицию скролла
     protected void applyScrollPosition(){
-        if(layoutManager != null && savedScrollPosition > -1){
-            layoutManager.scrollToPosition(savedScrollPosition);
+        if(layoutManager != null){
+            layoutManager.scrollToPosition(getPreviousPosition());
         }
     }
 
@@ -133,15 +132,9 @@ public abstract class BaseHeadRecyclerController extends BaseController implemen
         showLoadingFooter();
     }
 
-    protected void setScrollPosition(){
-        if(layoutManager != null){
-            savedScrollPosition = ((LinearLayoutManager)layoutManager).findFirstCompletelyVisibleItemPosition();
-            layoutManager = null;
-        }
-    }
     @Override
     protected void onDetach(@NonNull View view) {
-        setScrollPosition();
+        setPreviousPosition(layoutManager);
         clearEndlessScrollListener();
         getRVC().getRecycledViewPool().clear();
         mFastItemAdapter.notifyDataSetChanged();
@@ -161,6 +154,7 @@ public abstract class BaseHeadRecyclerController extends BaseController implemen
             mFastItemAdapter.withOnClickListener(null);
             mFastItemAdapter = null;
         }
+        layoutManager = null;
 
         super.onDetach(view);
     }
@@ -184,6 +178,10 @@ public abstract class BaseHeadRecyclerController extends BaseController implemen
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    // если хотим сохранить последнюю проскролленную позицию
+    protected void setPreviousPosition(RecyclerView.LayoutManager layoutManager){   }
+    protected int getPreviousPosition(){   return 0;   }
 
 
 }

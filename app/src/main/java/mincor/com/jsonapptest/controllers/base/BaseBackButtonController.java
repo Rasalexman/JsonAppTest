@@ -1,5 +1,6 @@
 package mincor.com.jsonapptest.controllers.base;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -13,6 +14,14 @@ import mincor.com.jsonapptest.R;
  */
 
 public abstract class BaseBackButtonController extends BaseController {
+
+    public BaseBackButtonController(){
+        super();
+    }
+
+    protected BaseBackButtonController(Bundle args) {
+        super(args);
+    }
 
     @BindView(R.id.toolbar_controller)    Toolbar addQuestionToolBar;
 

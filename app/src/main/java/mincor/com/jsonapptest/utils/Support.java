@@ -131,7 +131,7 @@ public final class Support {
         }else if(hoursBetween >= 1 && hoursBetween < 24){
             beetweenStr = String.valueOf(hoursBetween) + " " +MainApplication.getInstance().getString(R.string.back_less_hour);
         }else if(daysBetween > 365){
-            dateformater = new SimpleDateFormat("dd MMM YYYY", myDateFormatSymbols);
+            dateformater = new SimpleDateFormat("dd MMM yyyy", myDateFormatSymbols);
             beetweenStr = dateformater.format(messageDate);
         }else{
             dateformater = new SimpleDateFormat("dd MMM", myDateFormatSymbols);

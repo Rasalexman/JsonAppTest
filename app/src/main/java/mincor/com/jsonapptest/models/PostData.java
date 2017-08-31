@@ -1,5 +1,8 @@
 package mincor.com.jsonapptest.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
@@ -8,7 +11,7 @@ import com.google.gson.internal.LinkedTreeMap;
 
 import mincor.com.jsonapptest.consts.Constants;
 
-public class PostData {
+public class PostData implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -174,5 +177,26 @@ public class PostData {
             }
         }
         return contentStr;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(textId);
+        dest.writeString(date);
+        dest.writeString(lastUpdate);
+        dest.writeString(title);
+        dest.writeString(rubric);
+        dest.writeString(type);
+        dest.writeString(link);
+        dest.writeString(lead);
+        dest.writeInt(version);
+        dest.writeInt(spb);
+        dest.writeInt(forumId);
+        dest.writeList(jsons);
     }
 }
